@@ -1,0 +1,857 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGM BRIGHT FUTURE ACADEMY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #1a3a8f;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .school-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .school-tagline {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background: #2c5aa0;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: #ffd700;
+            color: #1a3a8f;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1600x600') center/cover;
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #ffd700;
+            color: #1a3a8f;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 0.5rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: #1a3a8f;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* Dashboard Sections */
+        .dashboard {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-section {
+            max-width: 400px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1a3a8f;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #1a3a8f;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f1f5f9;
+        }
+
+        /* Buttons */
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .edit-btn {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .delete-btn {
+            background: #f44336;
+            color: white;
+        }
+
+        .add-btn {
+            background: #2196F3;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        /* Forms */
+        .form-container {
+            background: #f1f5f9;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .form-container h3 {
+            color: #1a3a8f;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Tabs */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .school-name {
+                font-size: 1.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="school-name">GGM BRIGHT FUTURE ACADEMY</div>
+            <div class="school-tagline">Nursery and Primary School</div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#home" class="nav-link active" onclick="showSection('home')">Home</a>
+            <a href="#about" class="nav-link" onclick="showSection('about')">About</a>
+            <a href="#programs" class="nav-link" onclick="showSection('programs')">Programs</a>
+            <a href="#contact" class="nav-link" onclick="showSection('contact')">Contact</a>
+            <a href="#login" class="nav-link" onclick="showSection('login')">Login</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Building Bright Futures</h1>
+            <p>Providing quality early childhood education in a nurturing and stimulating environment for nursery and primary school children.</p>
+            <a href="#login" class="btn" onclick="showSection('login')">Teacher Login</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our School</h2>
+                <p>Dedicated to providing quality education for young learners</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🏫</div>
+                    <h3>Our Mission</h3>
+                    <p>To provide a safe, nurturing environment that promotes academic excellence and personal growth for all children in our care.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🎯</div>
+                    <h3>Our Vision</h3>
+                    <p>To develop lifelong learners who build strong foundations for future academic success and personal development.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">👩‍🏫</div>
+                    <h3>Qualified Staff</h3>
+                    <p>Our dedicated teachers are trained in early childhood education and passionate about helping children learn and grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+                <p>Comprehensive education for nursery and primary school children</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-img">Nursery Class</div>
+                    <div class="program-body">
+                        <h3>Nursery Program</h3>
+                        <p>For children aged 2-5 years. Focus on early learning skills, social development, and creative activities in a playful environment.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img">Primary Class</div>
+                    <div class="program-body">
+                        <h3>Primary Program</h3>
+                        <p>For pupils in Primary 1-6. Comprehensive curriculum covering literacy, numeracy, science, and social studies with engaging methods.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for enrollment and inquiries</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>Address</h3>
+                        <p>No 168, Rimi Road, Gyadi-gyadi, Tarauni Local Government Area, Kano</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>07066594438</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div>
+                        <h3>School Hours</h3>
+                        <p>Monday - Friday: 8:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" style="display: none;">
+        <div class="container">
+            <div class="login-section">
+                <h2 style="text-align: center; color: #1a3a8f; margin-bottom: 1.5rem;">Teacher Login</h2>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <button class="btn" style="width: 100%;" onclick="login()">Login</button>
+                <p style="text-align: center; margin-top: 1rem; color: #666;">Admin: admin / admin123</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="admin-dashboard" class="dashboard">
+        <h2>Admin Dashboard</h2>
+        <div class="nav-container" style="margin: 1.5rem 0; justify-content: flex-start; gap: 1rem;">
+            <button class="nav-link active" onclick="showTab('classes')">Manage Classes</button>
+            <button class="nav-link" onclick="showTab('teachers')">Manage Teachers</button>
+            <button class="nav-link" onclick="showTab('students')">Manage Students</button>
+        </div>
+
+        <!-- Classes Tab -->
+        <div id="classes" class="tab-content active">
+            <button class="add-btn" onclick="showForm('class-form')">Add New Class</button>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Teacher</th>
+                            <th>Students</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="classes-table">
+                        <tr>
+                            <td>Nursery 1</td>
+                            <td>Mrs. Amina</td>
+                            <td>25</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Primary 1</td>
+                            <td>Mr. Musa</td>
+                            <td>30</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Teachers Tab -->
+        <div id="teachers" class="tab-content">
+            <button class="add-btn" onclick="showForm('teacher-form')">Add New Teacher</button>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Class</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="teachers-table">
+                        <tr>
+                            <td>Mrs. Amina</td>
+                            <td>amina_t</td>
+                            <td>Nursery 1</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mr. Musa</td>
+                            <td>musa_t</td>
+                            <td>Primary 1</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Students Tab -->
+        <div id="students" class="tab-content">
+            <button class="add-btn" onclick="showForm('student-form')">Add New Student</button>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Parent/Guardian</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-table">
+                        <tr>
+                            <td>Aliyu Muhammad</td>
+                            <td>Nursery 1</td>
+                            <td>Hajiya Fatima</td>
+                            <td>08012345678</td>
+                            <td>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Forms -->
+        <div id="class-form" class="form-container">
+            <h3>Add New Class</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Class Name</label>
+                    <input type="text" placeholder="e.g. Nursery 1, Primary 3">
+                </div>
+                <div class="form-group">
+                    <label>Teacher</label>
+                    <select>
+                        <option>Mrs. Amina</option>
+                        <option>Mr. Musa</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn" onclick="hideForm('class-form')">Save</button>
+                <button class="btn" style="background: #666;" onclick="hideForm('class-form')">Cancel</button>
+            </div>
+        </div>
+
+        <div id="teacher-form" class="form-container">
+            <h3>Add New Teacher</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Teacher's full name">
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" placeholder="Username for login">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label>Class</label>
+                    <select>
+                        <option>Nursery 1</option>
+                        <option>Primary 1</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn" onclick="hideForm('teacher-form')">Save</button>
+                <button class="btn" style="background: #666;" onclick="hideForm('teacher-form')">Cancel</button>
+            </div>
+        </div>
+
+        <div id="student-form" class="form-container">
+            <h3>Add New Student</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Student's full name">
+                </div>
+                <div class="form-group">
+                    <label>Class</label>
+                    <select>
+                        <option>Nursery 1</option>
+                        <option>Primary 1</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Parent/Guardian</label>
+                    <input type="text" placeholder="Parent or guardian name">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" placeholder="Phone number">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn" onclick="hideForm('student-form')">Save</button>
+                <button class="btn" style="background: #666;" onclick="hideForm('student-form')">Cancel</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teacher Dashboard -->
+    <section id="teacher-dashboard" class="dashboard">
+        <h2>Teacher Dashboard</h2>
+        <div class="nav-container" style="margin: 1.5rem 0; justify-content: flex-start; gap: 1rem;">
+            <button class="nav-link active" onclick="showTeacherTab('my-class')">My Class</button>
+            <button class="nav-link" onclick="showTeacherTab('enter-results')">Enter Results</button>
+            <button class="nav-link" onclick="showTeacherTab('view-results')">View Results</button>
+        </div>
+
+        <!-- My Class Tab -->
+        <div id="my-class" class="tab-content active">
+            <h3>Nursery 1 - Mrs. Amina</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Parent/Guardian</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aliyu Muhammad</td>
+                            <td>Hajiya Fatima</td>
+                            <td>08012345678</td>
+                        </tr>
+                        <tr>
+                            <td>Aisha Bello</td>
+                            <td>Alhaji Bello</td>
+                            <td>08023456789</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Enter Results Tab -->
+        <div id="enter-results" class="tab-content">
+            <h3>Enter Results - First Term</h3>
+            <div class="form-row" style="margin-bottom: 1.5rem;">
+                <div class="form-group">
+                    <label>Subject</label>
+                    <select>
+                        <option>English Language</option>
+                        <option>Mathematics</option>
+                        <option>Science</option>
+                        <option>Social Studies</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Exam Type</label>
+                    <select>
+                        <option>Test 1</option>
+                        <option>Test 2</option>
+                        <option>Exam</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Score</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aliyu Muhammad</td>
+                            <td><input type="number" min="0" max="100" value="75" style="width: 60px; padding: 5px;"></td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Aisha Bello</td>
+                            <td><input type="number" min="0" max="100" value="82" style="width: 60px; padding: 5px;"></td>
+                            <td>A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn" style="margin-top: 1rem;">Save Results</button>
+        </div>
+
+        <!-- View Results Tab -->
+        <div id="view-results" class="tab-content">
+            <h3>Student Results - First Term</h3>
+            <div class="form-row" style="margin-bottom: 1.5rem;">
+                <div class="form-group">
+                    <label>Subject</label>
+                    <select>
+                        <option>English Language</option>
+                        <option>Mathematics</option>
+                        <option>Science</option>
+                        <option>Social Studies</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Exam Type</label>
+                    <select>
+                        <option>Test 1</option>
+                        <option>Test 2</option>
+                        <option>Exam</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Score</th>
+                            <th>Grade</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aliyu Muhammad</td>
+                            <td>75</td>
+                            <td>A</td>
+                            <td>Excellent</td>
+                        </tr>
+                        <tr>
+                            <td>Aisha Bello</td>
+                            <td>82</td>
+                            <td>A</td>
+                            <td>Excellent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GGM BRIGHT FUTURE ACADEMY. All rights reserved.</p>
+            <p>Nursery and Primary School</p>
+        </div>
+    </footer>
+
+    <script>
+        // Show different sections
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the requested section
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find the link that corresponds to this section and make it active
+            const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Login function
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'admin' && password === 'admin123') {
+                // Show admin dashboard
+                document.querySelectorAll('section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById('admin-dashboard').style.display = 'block';
+            } else if (username && password) {
+                // Show teacher dashboard
+                document.querySelectorAll('section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById('teacher-dashboard').style.display = 'block';
+            } else {
+                alert('Please enter username and password');
+            }
+        }
+
+        // Show tab in admin dashboard
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('#admin-dashboard .tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the requested tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update active button
+            document.querySelectorAll('#admin-dashboard .nav-link').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Find the button that was clicked and make it active
+            const button = event.target;
+            button.classList.add('active');
+        }
+
+        // Show tab in teacher dashboard
+        function showTeacherTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('#teacher-dashboard .tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the requested tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update active button
+            document.querySelectorAll('#teacher-dashboard .nav-link').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Find the button that was clicked and make it active
+            const button = event.target;
+            button.classList.add('active');
+        }
+
+        // Show form
+        function showForm(formId) {
+            // Hide all forms
+            document.querySelectorAll('.form-container').forEach(form => {
+                form.style.display = 'none';
+            });
+            
+            // Show the requested form
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        // Hide form
+        function hideForm(formId) {
+            document.getElementById(formId).style.display = 'none';
+        }
+
+        // Initialize - show home by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
+```
