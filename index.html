@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -21,14 +21,14 @@
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* Header */
         header {
-            background: #1a3a8f;
+            background: linear-gradient(135deg, #1a3a8f 0%, #2c5aa0 100%);
             color: white;
             padding: 1rem 0;
             text-align: center;
@@ -47,27 +47,32 @@
 
         /* Navigation */
         nav {
-            background: #2c5aa0;
-            padding: 1rem 0;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .nav-container {
             display: flex;
             justify-content: center;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .nav-link {
-            color: white;
+            color: #333;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 1rem 1.5rem;
             border-radius: 5px;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            font-weight: 500;
         }
 
         .nav-link:hover, .nav-link.active {
-            background: #ffd700;
-            color: #1a3a8f;
+            background: #1a3a8f;
+            color: white;
         }
 
         /* Hero */
@@ -75,99 +80,218 @@
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1600x600') center/cover;
             color: white;
             text-align: center;
-            padding: 6rem 0;
+            padding: 8rem 0;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 2.5rem;
             background: #ffd700;
             color: #1a3a8f;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 1.1rem;
             margin: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #1a3a8f;
         }
 
         /* Sections */
         section {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-title h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #1a3a8f;
             margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ffd700;
+            border-radius: 2px;
         }
 
         .section-title p {
             color: #666;
+            max-width: 700px;
+            margin: 1rem auto 0;
         }
 
-        /* Dashboard Sections */
+        /* Dashboard */
         .dashboard {
             display: none;
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
+        /* Login Section */
         .login-section {
-            max-width: 400px;
-            margin: 2rem auto;
+            max-width: 500px;
+            margin: 3rem auto;
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h3 {
+            color: #1a3a8f;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: #666;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: #1a3a8f;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
-        .form-group input, .form-group select {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.9rem 1.2rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #1a3a8f;
         }
 
         .form-actions {
             display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .dashboard-header {
+            background: #1a3a8f;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
             gap: 1rem;
-            margin-top: 1rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: #ffd700;
+            color: #1a3a8f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Tabs */
+        .dashboard-tabs {
+            display: flex;
+            background: #f1f5f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab-button {
+            padding: 1.2rem 2rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button:hover, .tab-button.active {
+            background: #1a3a8f;
+            color: white;
+            border-bottom: 3px solid #ffd700;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2.5rem;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         /* Tables */
         .table-container {
             overflow-x: auto;
+            margin: 1.5rem 0;
         }
 
         table {
@@ -177,28 +301,38 @@
         }
 
         th, td {
-            padding: 1rem;
+            padding: 1.2rem;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #eee;
         }
 
         th {
             background: #1a3a8f;
             color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
 
         tr:hover {
-            background: #f1f5f9;
+            background: #f8f9ff;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9ff;
         }
 
         /* Buttons */
         .action-btn {
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 0.9rem;
+            font-weight: 500;
             margin-right: 0.5rem;
+            transition: all 0.3s;
         }
 
         .edit-btn {
@@ -211,59 +345,149 @@
             color: white;
         }
 
-        .add-btn {
+        .view-btn {
             background: #2196F3;
             color: white;
-            padding: 0.5rem 1rem;
+        }
+
+        .print-btn {
+            background: #9C27B0;
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .add-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 0.8rem 1.5rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
         }
 
         /* Forms */
         .form-container {
-            background: #f1f5f9;
-            padding: 2rem;
-            border-radius: 10px;
+            background: #f8f9ff;
+            padding: 2.5rem;
+            border-radius: 15px;
             margin-bottom: 2rem;
             display: none;
+            border: 1px solid #e9ecef;
         }
 
         .form-container h3 {
             color: #1a3a8f;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
         .form-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
-        /* Tabs */
-        .tab-content {
-            display: none;
+        .full-width {
+            grid-column: 1 / -1;
         }
 
-        .tab-content.active {
-            display: block;
+        /* Dashboard Cards */
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: #1a3a8f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.8rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a3a8f;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
-            .school-name {
-                font-size: 1.5rem;
+            .hero p {
+                font-size: 1.1rem;
             }
             
             .nav-container {
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 0;
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .btn {
+                display: block;
+                margin: 0.5rem auto;
+                width: 80%;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-cards {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -273,7 +497,7 @@
     <header>
         <div class="container">
             <div class="school-name">GGM BRIGHT FUTURE ACADEMY</div>
-            <div class="school-tagline">Nursery and Primary School</div>
+            <div class="school-tagline">Nursery and Primary School Management System</div>
         </div>
     </header>
 
@@ -283,6 +507,7 @@
             <a href="#home" class="nav-link active" onclick="showSection('home')">Home</a>
             <a href="#about" class="nav-link" onclick="showSection('about')">About</a>
             <a href="#programs" class="nav-link" onclick="showSection('programs')">Programs</a>
+            <a href="#admission" class="nav-link" onclick="showSection('admission')">Admission</a>
             <a href="#contact" class="nav-link" onclick="showSection('contact')">Contact</a>
             <a href="#login" class="nav-link" onclick="showSection('login')">Login</a>
         </div>
@@ -292,8 +517,9 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>Building Bright Futures</h1>
-            <p>Providing quality early childhood education in a nurturing and stimulating environment for nursery and primary school children.</p>
-            <a href="#login" class="btn" onclick="showSection('login')">Teacher Login</a>
+            <p>Comprehensive school management system for GGM BRIGHT FUTURE ACADEMY, providing quality education and efficient administration for nursery and primary school children.</p>
+            <a href="#admission" class="btn" onclick="showSection('admission')">Apply Now</a>
+            <a href="#login" class="btn btn-outline" onclick="showSection('login')">Teacher Login</a>
         </div>
     </section>
 
@@ -350,6 +576,40 @@
         </div>
     </section>
 
+    <!-- Admission -->
+    <section id="admission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Admission Process</h2>
+                <p>Enroll your child in our quality educational program</p>
+            </div>
+            <div class="admission-process">
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Submit Application</h3>
+                        <p>Fill out the online admission form with your child's information</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Document Verification</h3>
+                        <p>Submit required documents for verification</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Interview</h3>
+                        <p>Attend a brief interview with our admission team</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Enrollment</h3>
+                        <p>Complete enrollment and fee payment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact">
         <div class="container">
@@ -387,58 +647,150 @@
     <section id="login" style="display: none;">
         <div class="container">
             <div class="login-section">
-                <h2 style="text-align: center; color: #1a3a8f; margin-bottom: 1.5rem;">Teacher Login</h2>
+                <div class="login-header">
+                    <h3>School Management System</h3>
+                    <p>Access your account to manage students, results, and classes</p>
+                </div>
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label>User Type</label>
+                    <select id="userType">
+                        <option value="admin">Administrator</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="accountant">Accountant</option>
+                        <option value="parent">Parent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
                     <input type="text" id="username" placeholder="Enter your username">
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label>Password</label>
                     <input type="password" id="password" placeholder="Enter your password">
                 </div>
-                <button class="btn" style="width: 100%;" onclick="login()">Login</button>
-                <p style="text-align: center; margin-top: 1rem; color: #666;">Admin: admin / admin123</p>
+                <div class="form-actions">
+                    <button class="btn" style="flex: 1;" onclick="login()">Login</button>
+                </div>
+                <p style="text-align: center; margin-top: 1.5rem; color: #666;">
+                    Demo Accounts:<br>
+                    Admin: admin / admin123<br>
+                    Teacher: teacher / teacher123<br>
+                    Accountant: accountant / accountant123
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Admin Dashboard -->
     <section id="admin-dashboard" class="dashboard">
-        <h2>Admin Dashboard</h2>
-        <div class="nav-container" style="margin: 1.5rem 0; justify-content: flex-start; gap: 1rem;">
-            <button class="nav-link active" onclick="showTab('classes')">Manage Classes</button>
-            <button class="nav-link" onclick="showTab('teachers')">Manage Teachers</button>
-            <button class="nav-link" onclick="showTab('students')">Manage Students</button>
+        <div class="dashboard-header">
+            <h2>Administrator Dashboard</h2>
+            <div class="user-info">
+                <div class="user-avatar">A</div>
+                <div>
+                    <div style="font-weight: 600;">Admin User</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Administrator</div>
+                </div>
+            </div>
         </div>
 
-        <!-- Classes Tab -->
-        <div id="classes" class="tab-content active">
-            <button class="add-btn" onclick="showForm('class-form')">Add New Class</button>
+        <div class="dashboard-cards">
+            <div class="dashboard-card">
+                <div class="card-icon">👥</div>
+                <div class="card-title">Total Students</div>
+                <div class="card-value">156</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">👩‍🏫</div>
+                <div class="card-title">Teachers</div>
+                <div class="card-value">12</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">🏫</div>
+                <div class="card-title">Classes</div>
+                <div class="card-value">8</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">💰</div>
+                <div class="card-title">Fees Collected</div>
+                <div class="card-value">₦450,000</div>
+            </div>
+        </div>
+
+        <div class="dashboard-tabs">
+            <button class="tab-button active" onclick="showAdminTab('dashboard')">Dashboard</button>
+            <button class="tab-button" onclick="showAdminTab('students')">Students</button>
+            <button class="tab-button" onclick="showAdminTab('teachers')">Teachers</button>
+            <button class="tab-button" onclick="showAdminTab('classes')">Classes</button>
+            <button class="tab-button" onclick="showAdminTab('fees')">Fees</button>
+            <button class="tab-button" onclick="showAdminTab('results')">Results</button>
+            <button class="tab-button" onclick="showAdminTab('attendance')">Attendance</button>
+            <button class="tab-button" onclick="showAdminTab('reports')">Reports</button>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <h3 style="color: #1a3a8f; margin-bottom: 1.5rem;">System Overview</h3>
+            <p>Welcome to the GGM BRIGHT FUTURE ACADEMY management system. From here, you can manage all aspects of the school administration including student records, teacher assignments, fee collection, and academic performance.</p>
+            
+            <div style="margin-top: 2rem;">
+                <h4 style="color: #1a3a8f; margin-bottom: 1rem;">Recent Activities</h4>
+                <div style="background: #f8f9ff; border-radius: 10px; padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                        <div>New student admission - Aliyu Muhammad</div>
+                        <div style="color: #666; font-size: 0.9rem;">2 hours ago</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+                        <div>Fee payment received - Aisha Bello (₦15,000)</div>
+                        <div style="color: #666; font-size: 0.9rem;">5 hours ago</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 0.8rem 0;">
+                        <div>Teacher assigned - Mr. Musa to Primary 3</div>
+                        <div style="color: #666; font-size: 0.9rem;">1 day ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Students Tab -->
+        <div id="students" class="tab-content">
+            <button class="add-btn" onclick="showForm('student-form')"><i class="fas fa-plus"></i> Add New Student</button>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <th>Class Name</th>
-                            <th>Teacher</th>
-                            <th>Students</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Parent/Guardian</th>
+                            <th>Phone</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="classes-table">
+                    <tbody id="students-table">
                         <tr>
+                            <td>ST001</td>
+                            <td>Aliyu Muhammad</td>
                             <td>Nursery 1</td>
-                            <td>Mrs. Amina</td>
-                            <td>25</td>
+                            <td>Hajiya Fatima</td>
+                            <td>08012345678</td>
+                            <td><span style="color: #4CAF50; font-weight: 500;">Active</span></td>
                             <td>
+                                <button class="action-btn view-btn">View</button>
                                 <button class="action-btn edit-btn">Edit</button>
                                 <button class="action-btn delete-btn">Delete</button>
                             </td>
                         </tr>
                         <tr>
+                            <td>ST002</td>
+                            <td>Aisha Bello</td>
                             <td>Primary 1</td>
-                            <td>Mr. Musa</td>
-                            <td>30</td>
+                            <td>Alhaji Bello</td>
+                            <td>08023456789</td>
+                            <td><span style="color: #4CAF50; font-weight: 500;">Active</span></td>
                             <td>
+                                <button class="action-btn view-btn">View</button>
                                 <button class="action-btn edit-btn">Edit</button>
                                 <button class="action-btn delete-btn">Delete</button>
                             </td>
@@ -450,32 +802,43 @@
 
         <!-- Teachers Tab -->
         <div id="teachers" class="tab-content">
-            <button class="add-btn" onclick="showForm('teacher-form')">Add New Teacher</button>
+            <button class="add-btn" onclick="showForm('teacher-form')"><i class="fas fa-plus"></i> Add New Teacher</button>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Username</th>
                             <th>Class</th>
+                            <th>Phone</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody id="teachers-table">
                         <tr>
+                            <td>TC001</td>
                             <td>Mrs. Amina</td>
                             <td>amina_t</td>
                             <td>Nursery 1</td>
+                            <td>08034567890</td>
+                            <td><span style="color: #4CAF50; font-weight: 500;">Active</span></td>
                             <td>
+                                <button class="action-btn view-btn">View</button>
                                 <button class="action-btn edit-btn">Edit</button>
                                 <button class="action-btn delete-btn">Delete</button>
                             </td>
                         </tr>
                         <tr>
+                            <td>TC002</td>
                             <td>Mr. Musa</td>
                             <td>musa_t</td>
                             <td>Primary 1</td>
+                            <td>08045678901</td>
+                            <td><span style="color: #4CAF50; font-weight: 500;">Active</span></td>
                             <td>
+                                <button class="action-btn view-btn">View</button>
                                 <button class="action-btn edit-btn">Edit</button>
                                 <button class="action-btn delete-btn">Delete</button>
                             </td>
@@ -485,27 +848,39 @@
             </div>
         </div>
 
-        <!-- Students Tab -->
-        <div id="students" class="tab-content">
-            <button class="add-btn" onclick="showForm('student-form')">Add New Student</button>
+        <!-- Classes Tab -->
+        <div id="classes" class="tab-content">
+            <button class="add-btn" onclick="showForm('class-form')"><i class="fas fa-plus"></i> Add New Class</button>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Class</th>
-                            <th>Parent/Guardian</th>
-                            <th>Phone</th>
+                            <th>Class Name</th>
+                            <th>Teacher</th>
+                            <th>Students</th>
+                            <th>Room</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="students-table">
+                    <tbody id="classes-table">
                         <tr>
-                            <td>Aliyu Muhammad</td>
                             <td>Nursery 1</td>
-                            <td>Hajiya Fatima</td>
-                            <td>08012345678</td>
+                            <td>Mrs. Amina</td>
+                            <td>25</td>
+                            <td>Room 1</td>
                             <td>
+                                <button class="action-btn view-btn">View</button>
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Primary 1</td>
+                            <td>Mr. Musa</td>
+                            <td>30</td>
+                            <td>Room 2</td>
+                            <td>
+                                <button class="action-btn view-btn">View</button>
                                 <button class="action-btn edit-btn">Edit</button>
                                 <button class="action-btn delete-btn">Delete</button>
                             </td>
@@ -515,33 +890,290 @@
             </div>
         </div>
 
+        <!-- Fees Tab -->
+        <div id="fees" class="tab-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="color: #1a3a8f;">Fee Management</h3>
+                <button class="add-btn" onclick="showForm('fee-form')"><i class="fas fa-plus"></i> Record Payment</button>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Student</th>
+                            <th>Class</th>
+                            <th>Amount</th>
+                            <th>Term</th>
+                            <th>Payment Method</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>15 Mar 2024</td>
+                            <td>Aliyu Muhammad</td>
+                            <td>Nursery 1</td>
+                            <td>₦12,000</td>
+                            <td>First Term</td>
+                            <td>Cash</td>
+                            <td><span style="color: #4CAF50; font-weight: 500;">Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td>14 Mar 2024</td>
+                            <td>Aisha Bello</td>
+                            <td>Primary 1</td>
+                            <td>₦15,000</td>
+                            <td>First Term</td>
+                            <td>Bank Transfer</td>
+                            <td><span style="color: #4CAF50; font-weight: 500;">Paid</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 2rem; background: #f8f9ff; padding: 2rem; border-radius: 15px;">
+                <h4 style="color: #1a3a8f; margin-bottom: 1.5rem;">Fee Structure</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <h5 style="color: #1a3a8f; margin-bottom: 0.5rem;">Nursery</h5>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #1a3a8f;">₦12,000</div>
+                        <div style="font-size: 0.9rem; color: #666;">per term</div>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <h5 style="color: #1a3a8f; margin-bottom: 0.5rem;">Primary 1-3</h5>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #1a3a8f;">₦15,000</div>
+                        <div style="font-size: 0.9rem; color: #666;">per term</div>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <h5 style="color: #1a3a8f; margin-bottom: 0.5rem;">Primary 4-6</h5>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #1a3a8f;">₦18,000</div>
+                        <div style="font-size: 0.9rem; color: #666;">per term</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Tab -->
+        <div id="results" class="tab-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="color: #1a3a8f;">Academic Results</h3>
+                <button class="add-btn" onclick="showForm('result-form')"><i class="fas fa-plus"></i> Enter Results</button>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Class</th>
+                            <th>Term</th>
+                            <th>Session</th>
+                            <th>Average Score</th>
+                            <th>Position</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aliyu Muhammad</td>
+                            <td>Nursery 1</td>
+                            <td>First Term</td>
+                            <td>2023/2024</td>
+                            <td>78.5</td>
+                            <td>3rd</td>
+                            <td>
+                                <button class="action-btn view-btn">View</button>
+                                <button class="action-btn print-btn">Print</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Aisha Bello</td>
+                            <td>Primary 1</td>
+                            <td>First Term</td>
+                            <td>2023/2024</td>
+                            <td>85.2</td>
+                            <td>1st</td>
+                            <td>
+                                <button class="action-btn view-btn">View</button>
+                                <button class="action-btn print-btn">Print</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Attendance Tab -->
+        <div id="attendance" class="tab-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="color: #1a3a8f;">Attendance Management</h3>
+                <button class="add-btn"><i class="fas fa-calendar"></i> Take Attendance</button>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Class</th>
+                            <th>Total Students</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Attendance Rate</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>18 Mar 2024</td>
+                            <td>Nursery 1</td>
+                            <td>25</td>
+                            <td>23</td>
+                            <td>2</td>
+                            <td>92%</td>
+                            <td>
+                                <button class="action-btn view-btn">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>18 Mar 2024</td>
+                            <td>Primary 1</td>
+                            <td>30</td>
+                            <td>28</td>
+                            <td>2</td>
+                            <td>93.3%</td>
+                            <td>
+                                <button class="action-btn view-btn">View</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Reports Tab -->
+        <div id="reports" class="tab-content">
+            <h3 style="color: #1a3a8f; margin-bottom: 1.5rem;">Generate Reports</h3>
+            
+            <div style="background: #f8f9ff; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <h4 style="margin-bottom: 1.5rem; color: #1a3a8f;">Report Generator</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Report Type</label>
+                        <select>
+                            <option>Student Progress Report</option>
+                            <option>Class Performance</option>
+                            <option>Fee Collection</option>
+                            <option>Attendance Summary</option>
+                            <option>Staff Report</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Class</label>
+                        <select>
+                            <option>All Classes</option>
+                            <option>Nursery 1</option>
+                            <option>Primary 1</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Term</label>
+                        <select>
+                            <option>First Term</option>
+                            <option>Second Term</option>
+                            <option>Third Term</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Session</label>
+                        <select>
+                            <option>2023/2024</option>
+                            <option>2022/2023</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn" style="margin-top: 1rem;">Generate Report</button>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h4 style="color: #1a3a8f; margin-bottom: 1.5rem;">Recent Reports</h4>
+                <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
+                    <div style="padding: 1.5rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 600; color: #1a3a8f;">First Term Progress Report</div>
+                            <div style="color: #666; font-size: 0.9rem;">Generated on 15 Mar 2024</div>
+                        </div>
+                        <button class="action-btn print-btn">Download</button>
+                    </div>
+                    <div style="padding: 1.5rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 600; color: #1a3a8f;">Fee Collection Summary</div>
+                            <div style="color: #666; font-size: 0.9rem;">Generated on 10 Mar 2024</div>
+                        </div>
+                        <button class="action-btn print-btn">Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Forms -->
-        <div id="class-form" class="form-container">
-            <h3>Add New Class</h3>
+        <div id="student-form" class="form-container">
+            <h3><i class="fas fa-user"></i> Add New Student</h3>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Class Name</label>
-                    <input type="text" placeholder="e.g. Nursery 1, Primary 3">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Student's full name">
                 </div>
                 <div class="form-group">
-                    <label>Teacher</label>
+                    <label>Date of Birth</label>
+                    <input type="date">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Gender</label>
                     <select>
-                        <option>Mrs. Amina</option>
-                        <option>Mr. Musa</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Class</label>
+                    <select>
+                        <option>Nursery 1</option>
+                        <option>Primary 1</option>
                     </select>
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Parent/Guardian Name</label>
+                    <input type="text" placeholder="Parent or guardian full name">
+                </div>
+                <div class="form-group">
+                    <label>Parent Phone</label>
+                    <input type="text" placeholder="Parent's phone number">
+                </div>
+            </div>
+            <div class="form-row full-width">
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea placeholder="Student's home address"></textarea>
+                </div>
+            </div>
             <div class="form-actions">
-                <button class="btn" onclick="hideForm('class-form')">Save</button>
-                <button class="btn" style="background: #666;" onclick="hideForm('class-form')">Cancel</button>
+                <button class="btn" onclick="hideForm('student-form')">Save Student</button>
+                <button class="btn" style="background: #666;" onclick="hideForm('student-form')">Cancel</button>
             </div>
         </div>
 
         <div id="teacher-form" class="form-container">
-            <h3>Add New Teacher</h3>
+            <h3><i class="fas fa-chalkboard-teacher"></i> Add New Teacher</h3>
             <div class="form-row">
                 <div class="form-group">
-                    <label>Name</label>
+                    <label>Full Name</label>
                     <input type="text" placeholder="Teacher's full name">
                 </div>
                 <div class="form-group">
@@ -555,58 +1187,221 @@
                     <input type="password" placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <label>Class</label>
-                    <select>
-                        <option>Nursery 1</option>
-                        <option>Primary 1</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-actions">
-                <button class="btn" onclick="hideForm('teacher-form')">Save</button>
-                <button class="btn" style="background: #666;" onclick="hideForm('teacher-form')">Cancel</button>
-            </div>
-        </div>
-
-        <div id="student-form" class="form-container">
-            <h3>Add New Student</h3>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" placeholder="Student's full name">
-                </div>
-                <div class="form-group">
-                    <label>Class</label>
-                    <select>
-                        <option>Nursery 1</option>
-                        <option>Primary 1</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Parent/Guardian</label>
-                    <input type="text" placeholder="Parent or guardian name">
-                </div>
-                <div class="form-group">
                     <label>Phone</label>
                     <input type="text" placeholder="Phone number">
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Qualification</label>
+                    <input type="text" placeholder="Educational qualification">
+                </div>
+                <div class="form-group">
+                    <label>Subject Specialization</label>
+                    <input type="text" placeholder="Subject they teach">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Assign Class</label>
+                    <select>
+                        <option>Nursery 1</option>
+                        <option>Primary 1</option>
+                    </select>
+                </div>
+            </div>
             <div class="form-actions">
-                <button class="btn" onclick="hideForm('student-form')">Save</button>
-                <button class="btn" style="background: #666;" onclick="hideForm('student-form')">Cancel</button>
+                <button class="btn" onclick="hideForm('teacher-form')">Save Teacher</button>
+                <button class="btn" style="background: #666;" onclick="hideForm('teacher-form')">Cancel</button>
+            </div>
+        </div>
+
+        <div id="class-form" class="form-container">
+            <h3><i class="fas fa-school"></i> Add New Class</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Class Name</label>
+                    <input type="text" placeholder="e.g. Nursery 1, Primary 3">
+                </div>
+                <div class="form-group">
+                    <label>Room Number</label>
+                    <input type="text" placeholder="Classroom number">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Teacher</label>
+                    <select>
+                        <option>Mrs. Amina</option>
+                        <option>Mr. Musa</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Maximum Capacity</label>
+                    <input type="number" placeholder="Max number of students">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn" onclick="hideForm('class-form')">Save Class</button>
+                <button class="btn" style="background: #666;" onclick="hideForm('class-form')">Cancel</button>
+            </div>
+        </div>
+
+        <div id="fee-form" class="form-container">
+            <h3><i class="fas fa-money-bill"></i> Record Fee Payment</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Student</label>
+                    <select>
+                        <option>Aliyu Muhammad (Nursery 1)</option>
+                        <option>Aisha Bello (Primary 1)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Amount Paid</label>
+                    <input type="number" placeholder="Amount in Naira">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Term</label>
+                    <select>
+                        <option>First Term</option>
+                        <option>Second Term</option>
+                        <option>Third Term</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select>
+                        <option>Cash</option>
+                        <option>Bank Transfer</option>
+                        <option>POS</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row full-width">
+                <div class="form-group">
+                    <label>Receipt Number</label>
+                    <input type="text" placeholder="Receipt or transaction number">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn" onclick="hideForm('fee-form')">Record Payment</button>
+                <button class="btn" style="background: #666;" onclick="hideForm('fee-form')">Cancel</button>
+            </div>
+        </div>
+
+        <div id="result-form" class="form-container">
+            <h3><i class="fas fa-clipboard-check"></i> Enter Student Results</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Class</label>
+                    <select>
+                        <option>Nursery 1</option>
+                        <option>Primary 1</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <select>
+                        <option>English Language</option>
+                        <option>Mathematics</option>
+                        <option>Science</option>
+                        <option>Social Studies</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Term</label>
+                    <select>
+                        <option>First Term</option>
+                        <option>Second Term</option>
+                        <option>Third Term</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Session</label>
+                    <input type="text" value="2023/2024" readonly>
+                </div>
+            </div>
+            <div style="margin-top: 1.5rem;">
+                <h4 style="color: #1a3a8f; margin-bottom: 1rem;">Enter Scores</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Test 1 (20%)</th>
+                                <th>Test 2 (20%)</th>
+                                <th>Exam (60%)</th>
+                                <th>Total (100%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aliyu Muhammad</td>
+                                <td><input type="number" min="0" max="20" value="15" style="width: 60px; padding: 5px;"></td>
+                                <td><input type="number" min="0" max="20" value="16" style="width: 60px; padding: 5px;"></td>
+                                <td><input type="number" min="0" max="60" value="45" style="width: 60px; padding: 5px;"></td>
+                                <td>76</td>
+                            </tr>
+                            <tr>
+                                <td>Aisha Bello</td>
+                                <td><input type="number" min="0" max="20" value="18" style="width: 60px; padding: 5px;"></td>
+                                <td><input type="number" min="0" max="20" value="17" style="width: 60px; padding: 5px;"></td>
+                                <td><input type="number" min="0" max="60" value="50" style="width: 60px; padding: 5px;"></td>
+                                <td>85</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn" onclick="hideForm('result-form')">Save Results</button>
+                <button class="btn" style="background: #666;" onclick="hideForm('result-form')">Cancel</button>
             </div>
         </div>
     </section>
 
     <!-- Teacher Dashboard -->
     <section id="teacher-dashboard" class="dashboard">
-        <h2>Teacher Dashboard</h2>
-        <div class="nav-container" style="margin: 1.5rem 0; justify-content: flex-start; gap: 1rem;">
-            <button class="nav-link active" onclick="showTeacherTab('my-class')">My Class</button>
-            <button class="nav-link" onclick="showTeacherTab('enter-results')">Enter Results</button>
-            <button class="nav-link" onclick="showTeacherTab('view-results')">View Results</button>
+        <div class="dashboard-header">
+            <h2>Teacher Dashboard</h2>
+            <div class="user-info">
+                <div class="user-avatar">T</div>
+                <div>
+                    <div style="font-weight: 600;">Mrs. Amina</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Nursery 1 Teacher</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-cards">
+            <div class="dashboard-card">
+                <div class="card-icon">👥</div>
+                <div class="card-title">My Students</div>
+                <div class="card-value">25</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">📝</div>
+                <div class="card-title">Pending Results</div>
+                <div class="card-value">0</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">📅</div>
+                <div class="card-title">Attendance</div>
+                <div class="card-value">98%</div>
+            </div>
+        </div>
+
+        <div class="dashboard-tabs">
+            <button class="tab-button active" onclick="showTeacherTab('my-class')">My Class</button>
+            <button class="tab-button" onclick="showTeacherTab('enter-results')">Enter Results</button>
+            <button class="tab-button" onclick="showTeacherTab('view-results')">View Results</button>
+            <button class="tab-button" onclick="showTeacherTab('attendance')">Take Attendance</button>
+            <button class="tab-button" onclick="showTeacherTab('reports')">Generate Reports</button>
         </div>
 
         <!-- My Class Tab -->
@@ -616,21 +1411,31 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Student Name</th>
                             <th>Parent/Guardian</th>
                             <th>Phone</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>ST001</td>
                             <td>Aliyu Muhammad</td>
                             <td>Hajiya Fatima</td>
                             <td>08012345678</td>
+                            <td>
+                                <button class="action-btn view-btn">View</button>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Aisha Bello</td>
-                            <td>Alhaji Bello</td>
-                            <td>08023456789</td>
+                            <td>ST003</td>
+                            <td>Umar Sani</td>
+                            <td>Hajiya Aisha</td>
+                            <td>08056789012</td>
+                            <td>
+                                <button class="action-btn view-btn">View</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -639,7 +1444,7 @@
 
         <!-- Enter Results Tab -->
         <div id="enter-results" class="tab-content">
-            <h3>Enter Results - First Term</h3>
+            <h3>Enter Results - First Term 2023/2024</h3>
             <div class="form-row" style="margin-bottom: 1.5rem;">
                 <div class="form-group">
                     <label>Subject</label>
@@ -647,15 +1452,7 @@
                         <option>English Language</option>
                         <option>Mathematics</option>
                         <option>Science</option>
-                        <option>Social Studies</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Exam Type</label>
-                    <select>
-                        <option>Test 1</option>
-                        <option>Test 2</option>
-                        <option>Exam</option>
+                        <option>Social Habits</option>
                     </select>
                 </div>
             </div>
@@ -665,20 +1462,29 @@
                     <thead>
                         <tr>
                             <th>Student Name</th>
-                            <th>Score</th>
+                            <th>Test 1 (20%)</th>
+                            <th>Test 2 (20%)</th>
+                            <th>Exam (60%)</th>
+                            <th>Total (100%)</th>
                             <th>Grade</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Aliyu Muhammad</td>
-                            <td><input type="number" min="0" max="100" value="75" style="width: 60px; padding: 5px;"></td>
-                            <td>A</td>
+                            <td><input type="number" min="0" max="20" value="15" style="width: 60px; padding: 5px;"></td>
+                            <td><input type="number" min="0" max="20" value="16" style="width: 60px; padding: 5px;"></td>
+                            <td><input type="number" min="0" max="60" value="45" style="width: 60px; padding: 5px;"></td>
+                            <td>76</td>
+                            <td>B</td>
                         </tr>
                         <tr>
-                            <td>Aisha Bello</td>
-                            <td><input type="number" min="0" max="100" value="82" style="width: 60px; padding: 5px;"></td>
-                            <td>A</td>
+                            <td>Umar Sani</td>
+                            <td><input type="number" min="0" max="20" value="12" style="width: 60px; padding: 5px;"></td>
+                            <td><input type="number" min="0" max="20" value="14" style="width: 60px; padding: 5px;"></td>
+                            <td><input type="number" min="0" max="60" value="38" style="width: 60px; padding: 5px;"></td>
+                            <td>64</td>
+                            <td>C</td>
                         </tr>
                     </tbody>
                 </table>
@@ -688,7 +1494,7 @@
 
         <!-- View Results Tab -->
         <div id="view-results" class="tab-content">
-            <h3>Student Results - First Term</h3>
+            <h3>Student Results - First Term 2023/2024</h3>
             <div class="form-row" style="margin-bottom: 1.5rem;">
                 <div class="form-group">
                     <label>Subject</label>
@@ -696,15 +1502,7 @@
                         <option>English Language</option>
                         <option>Mathematics</option>
                         <option>Science</option>
-                        <option>Social Studies</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Exam Type</label>
-                    <select>
-                        <option>Test 1</option>
-                        <option>Test 2</option>
-                        <option>Exam</option>
+                        <option>Social Habits</option>
                     </select>
                 </div>
             </div>
@@ -714,7 +1512,10 @@
                     <thead>
                         <tr>
                             <th>Student Name</th>
-                            <th>Score</th>
+                            <th>Test 1</th>
+                            <th>Test 2</th>
+                            <th>Exam</th>
+                            <th>Total</th>
                             <th>Grade</th>
                             <th>Remarks</th>
                         </tr>
@@ -722,15 +1523,289 @@
                     <tbody>
                         <tr>
                             <td>Aliyu Muhammad</td>
-                            <td>75</td>
-                            <td>A</td>
-                            <td>Excellent</td>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>45</td>
+                            <td>76</td>
+                            <td>B</td>
+                            <td>Good</td>
                         </tr>
                         <tr>
+                            <td>Umar Sani</td>
+                            <td>12</td>
+                            <td>14</td>
+                            <td>38</td>
+                            <td>64</td>
+                            <td>C</td>
+                            <td>Fair</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn" style="margin-top: 1rem;">Print Report Cards</button>
+        </div>
+
+        <!-- Attendance Tab -->
+        <div id="attendance" class="tab-content">
+            <h3>Take Attendance - <span id="current-date"></span></h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Late</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aliyu Muhammad</td>
+                            <td><input type="radio" name="attendance1" value="present" checked></td>
+                            <td><input type="radio" name="attendance1" value="absent"></td>
+                            <td><input type="radio" name="attendance1" value="late"></td>
+                            <td><input type="text" placeholder="Remarks" style="width: 100px; padding: 5px;"></td>
+                        </tr>
+                        <tr>
+                            <td>Umar Sani</td>
+                            <td><input type="radio" name="attendance2" value="present"></td>
+                            <td><input type="radio" name="attendance2" value="absent" checked></td>
+                            <td><input type="radio" name="attendance2" value="late"></td>
+                            <td><input type="text" placeholder="Sick" style="width: 100px; padding: 5px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn" style="margin-top: 1rem;">Save Attendance</button>
+        </div>
+
+        <!-- Reports Tab -->
+        <div id="reports" class="tab-content">
+            <h3>Generate Class Reports</h3>
+            <div style="background: #f8f9ff; padding: 2rem; border-radius: 15px;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Report Type</label>
+                        <select>
+                            <option>Progress Report</option>
+                            <option>Behavior Report</option>
+                            <option>End of Term Report</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Student</label>
+                        <select>
+                            <option>All Students</option>
+                            <option>Aliyu Muhammad</option>
+                            <option>Umar Sani</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label>Comments</label>
+                    <textarea placeholder="Enter your comments about the student's performance and behavior..." style="height: 150px;"></textarea>
+                </div>
+                <button class="btn" style="margin-top: 1rem;">Generate Report</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accountant Dashboard -->
+    <section id="accountant-dashboard" class="dashboard">
+        <div class="dashboard-header">
+            <h2>Accountant Dashboard</h2>
+            <div class="user-info">
+                <div class="user-avatar">AC</div>
+                <div>
+                    <div style="font-weight: 600;">Accountant User</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Accountant</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-cards">
+            <div class="dashboard-card">
+                <div class="card-icon">💰</div>
+                <div class="card-title">Today's Collection</div>
+                <div class="card-value">₦85,000</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">📊</div>
+                <div class="card-title">Monthly Target</div>
+                <div class="card-value">₦400,000</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">📈</div>
+                <div class="card-title">Collection Rate</div>
+                <div class="card-value">85%</div>
+            </div>
+        </div>
+
+        <div class="dashboard-tabs">
+            <button class="tab-button active" onclick="showAccountantTab('fee-collection')">Fee Collection</button>
+            <button class="tab-button" onclick="showAccountantTab('expenses')">Expenses</button>
+            <button class="tab-button" onclick="showAccountantTab('reports')">Financial Reports</button>
+            <button class="tab-button" onclick="showAccountantTab('budget')">Budget</button>
+        </div>
+
+        <!-- Fee Collection Tab -->
+        <div id="fee-collection" class="tab-content active">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="color: #1a3a8f;">Record Fee Payment</h3>
+                <button class="add-btn"><i class="fas fa-plus"></i> New Payment</button>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Student</th>
+                            <th>Class</th>
+                            <th>Amount</th>
+                            <th>Term</th>
+                            <th>Payment Method</th>
+                            <th>Receipt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>18 Mar 2024</td>
+                            <td>Aliyu Muhammad</td>
+                            <td>Nursery 1</td>
+                            <td>₦12,000</td>
+                            <td>First Term</td>
+                            <td>Cash</td>
+                            <td>REC001</td>
+                        </tr>
+                        <tr>
+                            <td>18 Mar 2024</td>
                             <td>Aisha Bello</td>
-                            <td>82</td>
-                            <td>A</td>
-                            <td>Excellent</td>
+                            <td>Primary 1</td>
+                            <td>₦15,000</td>
+                            <td>First Term</td>
+                            <td>Bank Transfer</td>
+                            <td>REC002</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Expenses Tab -->
+        <div id="expenses" class="tab-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="color: #1a3a8f;">School Expenses</h3>
+                <button class="add-btn"><i class="fas fa-plus"></i> Record Expense</button>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Approved By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>15 Mar 2024</td>
+                            <td>Office Supplies</td>
+                            <td>Administration</td>
+                            <td>₦25,000</td>
+                            <td>Principal</td>
+                        </tr>
+                        <tr>
+                            <td>10 Mar 2024</td>
+                            <td>Textbooks</td>
+                            <td>Academic</td>
+                            <td>₦45,000</td>
+                            <td>Head Teacher</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Financial Reports Tab -->
+        <div id="reports" class="tab-content">
+            <h3 style="color: #1a3a8f; margin-bottom: 1.5rem;">Financial Reports</h3>
+            
+            <div style="background: #f8f9ff; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <h4 style="margin-bottom: 1.5rem; color: #1a3a8f;">Monthly Financial Summary</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <div style="color: #4CAF50; font-size: 1.2rem; margin-bottom: 0.5rem;">Income</div>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: #4CAF50;">₦320,000</div>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <div style="color: #f44336; font-size: 1.2rem; margin-bottom: 0.5rem;">Expenses</div>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: #f44336;">₦180,000</div>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; text-align: center;">
+                        <div style="color: #2196F3; font-size: 1.2rem; margin-bottom: 0.5rem;">Net Profit</div>
+                        <div style="font-size: 1.8rem; font-weight: 700; color: #2196F3;">₦140,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h4 style="color: #1a3a8f; margin-bottom: 1.5rem;">Generate Financial Report</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Report Type</label>
+                        <select>
+                            <option>Monthly Report</option>
+                            <option>Termly Report</option>
+                            <option>Annual Report</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>End Date</label>
+                        <input type="date">
+                    </div>
+                </div>
+                <button class="btn" style="margin-top: 1rem;">Generate Report</button>
+            </div>
+        </div>
+
+        <!-- Budget Tab -->
+        <div id="budget" class="tab-content">
+            <h3 style="color: #1a3a8f; margin-bottom: 1.5rem;">Annual Budget Planning</h3>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Budgeted Amount</th>
+                            <th>Actual Spending</th>
+                            <th>Variance</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Staff Salaries</td>
+                            <td>₦1,200,000</td>
+                            <td>₦1,150,000</td>
+                            <td>₦50,000</td>
+                            <td><span style="color: #4CAF50; font-weight: 500;">Under Budget</span></td>
+                        </tr>
+                        <tr>
+                            <td>Academic Materials</td>
+                            <td>₦400,000</td>
+                            <td>₦420,000</td>
+                            <td>-₦20,000</td>
+                            <td><span style="color: #f44336; font-weight: 500;">Over Budget</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -742,7 +1817,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2024 GGM BRIGHT FUTURE ACADEMY. All rights reserved.</p>
-            <p>Nursery and Primary School</p>
+            <p>Nursery and Primary School Management System</p>
         </div>
     </footer>
 
@@ -751,11 +1826,18 @@
         function showSection(sectionId) {
             // Hide all sections
             document.querySelectorAll('section').forEach(section => {
-                section.style.display = 'none';
+                if (section.id !== 'admin-dashboard' && 
+                    section.id !== 'teacher-dashboard' && 
+                    section.id !== 'accountant-dashboard') {
+                    section.style.display = 'none';
+                }
             });
             
             // Show the requested section
-            document.getElementById(sectionId).style.display = 'block';
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = 'block';
+            }
             
             // Update active nav link
             document.querySelectorAll('.nav-link').forEach(link => {
@@ -771,20 +1853,23 @@
 
         // Login function
         function login() {
+            const userType = document.getElementById('userType').value;
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             
-            if (username === 'admin' && password === 'admin123') {
-                // Show admin dashboard
-                document.querySelectorAll('section').forEach(section => {
-                    section.style.display = 'none';
-                });
+            // Hide all dashboard sections first
+            document.getElementById('admin-dashboard').style.display = 'none';
+            document.getElementById('teacher-dashboard').style.display = 'none';
+            document.getElementById('accountant-dashboard').style.display = 'none';
+            
+            if (userType === 'admin' && username === 'admin' && password === 'admin123') {
                 document.getElementById('admin-dashboard').style.display = 'block';
+            } else if (userType === 'teacher' && username === 'teacher' && password === 'teacher123') {
+                document.getElementById('teacher-dashboard').style.display = 'block';
+            } else if (userType === 'accountant' && username === 'accountant' && password === 'accountant123') {
+                document.getElementById('accountant-dashboard').style.display = 'block';
             } else if (username && password) {
-                // Show teacher dashboard
-                document.querySelectorAll('section').forEach(section => {
-                    section.style.display = 'none';
-                });
+                // Default to teacher dashboard for any username/password
                 document.getElementById('teacher-dashboard').style.display = 'block';
             } else {
                 alert('Please enter username and password');
@@ -792,7 +1877,7 @@
         }
 
         // Show tab in admin dashboard
-        function showTab(tabId) {
+        function showAdminTab(tabId) {
             // Hide all tabs
             document.querySelectorAll('#admin-dashboard .tab-content').forEach(tab => {
                 tab.classList.remove('active');
@@ -802,7 +1887,7 @@
             document.getElementById(tabId).classList.add('active');
             
             // Update active button
-            document.querySelectorAll('#admin-dashboard .nav-link').forEach(button => {
+            document.querySelectorAll('#admin-dashboard .tab-button').forEach(button => {
                 button.classList.remove('active');
             });
             
@@ -822,7 +1907,27 @@
             document.getElementById(tabId).classList.add('active');
             
             // Update active button
-            document.querySelectorAll('#teacher-dashboard .nav-link').forEach(button => {
+            document.querySelectorAll('#teacher-dashboard .tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Find the button that was clicked and make it active
+            const button = event.target;
+            button.classList.add('active');
+        }
+
+        // Show tab in accountant dashboard
+        function showAccountantTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('#accountant-dashboard .tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the requested tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update active button
+            document.querySelectorAll('#accountant-dashboard .tab-button').forEach(button => {
                 button.classList.remove('active');
             });
             
@@ -847,8 +1952,18 @@
             document.getElementById(formId).style.display = 'none';
         }
 
-        // Initialize - show home by default
+        // Set current date for attendance
         document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const dateString = today.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            document.getElementById('current-date')?.textContent = dateString;
+            
+            // Show home by default
             showSection('home');
         });
     </script>
